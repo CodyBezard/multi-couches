@@ -55,6 +55,14 @@ public class App
         em.persist(produit2);
         em.persist(produit3);
 
+        PetStore petStoreTousAnimaux = em.find(PetStore.class,3);
+        if(petStoreTousAnimaux!=null) {
+            System.out.println("Liste des animaux du petStore 3 :");
+            for (Animal var : petStoreTousAnimaux.getAnimaux()) {
+                System.out.println(var);
+            }
+        }
+
         transaction.commit();
         em.close();
         emf.close();
